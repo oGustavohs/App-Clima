@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App de Clima</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🌤️ App de Clima</h1>
+
+      <div class="search-section">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Digite o nome da cidade..."
+        />
+        <button id="searchBtn">Buscar</button>
+      </div>
+
+      <div id="loading" class="loading hidden">Carregando...</div>
+
+      <div id="weatherInfo" class="weather-info hidden">
+        <div id="cityName" class="city-name"></div>
+        <div class="weather-icon">
+          <img id="weatherIcon" src="" alt="Ícone do clima" />
+        </div>
+        <div id="temperature" class="temperature"></div>
+        <div id="description" class="description"></div>
+  
+      </div>
+
+      <div id="error" class="error hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

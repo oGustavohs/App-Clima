@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Teste API Clima</title>
+  </head>
+  <body>
+    <h1>Teste da API Key</h1>
+    <button onclick="testarAPI()">Testar "London"</button>
+    <div id="resultado"></div>
+
+    <script>
+      const API_KEY = "d31262e177dac365ced3bbc8b5492ce5";
+
+      async function testarAPI() {
+        const resultado = document.getElementById("resultado");
+        resultado.innerHTML = "Testando...";
+
+        try {
+          const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_KEY}&units=metric`,
+          );
+          const data = await response.json();
+
+          if (response.ok) {
+            resultado.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+          } else {
+            resultado.innerHTML = `<p style="color:red">❌ ERRO ${data.cod}: ${data.message}</p>`;
+          }
+        } catch (error) {
+          resultado.innerHTML = `<p style="color:red">❌ Erro de rede: ${error.message}</p>`;
+        }
+      }
+    </script>
+  </body>
+</html>
